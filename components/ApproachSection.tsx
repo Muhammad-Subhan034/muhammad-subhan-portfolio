@@ -32,7 +32,7 @@ export default function ApproachSection() {
         </Reveal>
         <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-paper/10 bg-paper/10 md:grid-cols-2">
           {PRINCIPLES.map((p, i) => (
-            <Reveal key={p.n} delay={i * 0.05} className="bg-ink p-7">
+            <Reveal key={p.n} variant="scale-in" delay={i * 0.06} className="bg-ink p-7">
               <span className="font-display text-3xl font-extrabold text-paper/20">{p.n}</span>
               <h3 className="mt-4 font-display text-xl font-bold text-paper">{p.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-dim">{p.body}</p>

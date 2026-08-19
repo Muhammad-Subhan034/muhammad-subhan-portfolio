@@ -1,11 +1,43 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 import { CATEGORY_COLOR, type Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const color = CATEGORY_COLOR[project.category];
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const card = cardRef.current;
+    if (!card || window.matchMedia("(pointer: coarse)").matches) return;
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    gsap.to(card, {
+      rotateX: py * -6,
+      rotateY: px * 6,
+      duration: 0.4,
+      ease: "power2.out",
+      transformPerspective: 900,
+    });
+  }
+
+  function onMouseLeave() {
+    const card = cardRef.current;
+    if (!card) return;
+    gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.6, ease: "power3.out" });
+  }
 
   return (
-    <div className="group overflow-hidden rounded-sm border border-paper/12 bg-ink-raised transition-colors hover:border-paper/25">
+    <div
+      ref={cardRef}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{ ["--cat-color" as string]: color }}
+      className="group relative overflow-hidden rounded-sm border border-paper/12 bg-ink-raised transition-colors duration-300 [transform-style:preserve-3d] hover:border-[var(--cat-color)]/60 hover:shadow-[0_0_40px_-12px_var(--cat-color)]"
+    >
       <a href={project.liveUrl} target="_blank" rel="noreferrer" className="block">
         <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-paper/10 bg-ink">
           <Image
@@ -14,6 +46,10 @@ export default function ProjectCard({ project }: { project: Project }) {
             fill
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-paper/15 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
           />
         </div>
       </a>
@@ -44,7 +80,8 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex-1 rounded-sm bg-signal px-4 py-2 text-center font-mono text-[11px] uppercase tracking-wide text-ink"
+            data-cursor-hover
+            className="flex-1 rounded-sm bg-signal px-4 py-2 text-center font-mono text-[11px] uppercase tracking-wide text-ink transition-transform hover:-translate-y-0.5"
           >
             View live →
           </a>
@@ -52,6 +89,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.repoUrl}
             target="_blank"
             rel="noreferrer"
+            data-cursor-hover
             className="flex-1 rounded-sm border border-paper/20 px-4 py-2 text-center font-mono text-[11px] uppercase tracking-wide text-paper hover:bg-ink"
           >
             Source

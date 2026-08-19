@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import SystemsStatus from "./SystemsStatus";
+import NetworkField from "./NetworkField";
 
 export default function Hero() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="top" ref={rootRef} className="mx-auto max-w-6xl px-6 pb-20 pt-16 md:pt-24">
+    <section id="top" ref={rootRef} className="relative overflow-hidden">
+      <NetworkField />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink" />
+      <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 md:pt-24">
       <div className="grid items-center gap-16 md:grid-cols-[1.1fr_0.9fr]">
         <div>
           <div data-hero-fade className="mb-6 flex items-center gap-4">
@@ -96,6 +100,7 @@ export default function Hero() {
         <div className="flex justify-center md:justify-end">
           <SystemsStatus />
         </div>
+      </div>
       </div>
     </section>
   );

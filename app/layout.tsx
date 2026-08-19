@@ -4,6 +4,8 @@ import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import GrainOverlay from "@/components/GrainOverlay";
 import Nav from "@/components/Nav";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -35,6 +37,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-ink text-paper font-body antialiased">
         <SmoothScrollProvider>
           <GrainOverlay />
+          <ScrollProgress />
+          <CustomCursor />
           <Nav />
           {children}
         </SmoothScrollProvider>

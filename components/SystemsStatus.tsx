@@ -1,16 +1,22 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { PROJECTS, CATEGORY_COLOR } from "@/lib/projects";
+
+const BOOT_LINE = "$ pinging 8 deployments...";
 
 export default function SystemsStatus() {
   const rowRefs = useRef<Array<HTMLDivElement | null>>([]);
   const dotRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const [bootText, setBootText] = useState("");
+  const [showStatus, setShowStatus] = useState(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
+      setBootText(BOOT_LINE);
+      setShowStatus(true);
       gsap.set(rowRefs.current, { opacity: 1, x: 0 });
       gsap.set(dotRefs.current, { backgroundColor: "var(--signal)" });
       return;
@@ -18,7 +24,14 @@ export default function SystemsStatus() {
 
     gsap.set(rowRefs.current, { opacity: 0, x: -8 });
 
-    const tl = gsap.timeline({ delay: 0.4 });
+    let i = 0;
+    const typeInterval = window.setInterval(() => {
+      i++;
+      setBootText(BOOT_LINE.slice(0, i));
+      if (i >= BOOT_LINE.length) window.clearInterval(typeInterval);
+    }, 18);
+
+    const tl = gsap.timeline({ delay: 0.55, onStart: () => setShowStatus(true) });
     PROJECTS.forEach((_, i) => {
       tl.to(rowRefs.current[i], { opacity: 1, x: 0, duration: 0.3, ease: "power2.out" }, i * 0.09);
       tl.fromTo(
@@ -31,9 +44,12 @@ export default function SystemsStatus() {
 
     const failsafe = window.setTimeout(() => {
       if (tl.progress() < 1) tl.progress(1);
+      setShowStatus(true);
+      setBootText(BOOT_LINE);
     }, 3500);
 
     return () => {
+      window.clearInterval(typeInterval);
       window.clearTimeout(failsafe);
       tl.kill();
     };
@@ -42,7 +58,14 @@ export default function SystemsStatus() {
   return (
     <div className="w-full max-w-sm rounded-sm border border-paper/12 bg-ink-raised p-6">
       <p className="font-mono text-[11px] uppercase tracking-widest text-dim">
-        8 systems — all live
+        {showStatus ? (
+          "8 systems — all live"
+        ) : (
+          <>
+            {bootText}
+            <span className="animate-pulse">▌</span>
+          </>
+        )}
       </p>
       <div className="mt-5 space-y-2.5">
         {PROJECTS.map((p, i) => (
