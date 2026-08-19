@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Portfolio token system — deliberately quiet so the 8 projects' own colors
+     do the talking. One accent (signal), plus the validated categorical
+     palette reused for the 8 domain tags, which is exactly what it's for. */
+  --ink: #0b0c0e;
+  --ink-raised: #131518;
+  --paper: #eef0f0;
+  --dim: #8b929c;
+  --signal: #5b8cff;
+  --signal-soft: #182236;
+
+  /* validated 8-hue categorical palette (dataviz skill reference), reused for
+     domain tags — identity-by-category, fixed order, never cycled. Dark-mode
+     steps, since this UI's surface is --ink throughout, not the light default. */
+  --cat-hr: #3987e5;
+  --cat-edtech: #d95926;
+  --cat-sales: #199e70;
+  --cat-legal: #c98500;
+  --cat-finance: #d55181;
+  --cat-agentic: #008300;
+  --cat-voice: #9085e9;
+  --cat-multimodal: #e66767;
+
+  --ease: cubic-bezier(0.16, 0.8, 0.24, 1);
+
+  --font-display: var(--font-manrope);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-paper: var(--paper);
+  --color-dim: var(--dim);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-cat-hr: var(--cat-hr);
+  --color-cat-edtech: var(--cat-edtech);
+  --color-cat-sales: var(--cat-sales);
+  --color-cat-legal: var(--cat-legal);
+  --color-cat-finance: var(--cat-finance);
+  --color-cat-agentic: var(--cat-agentic);
+  --color-cat-voice: var(--cat-voice);
+  --color-cat-multimodal: var(--cat-multimodal);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.mask i {
+  display: inline-block;
+  font-style: normal;
+}
+
+.reveal {
+  opacity: 1;
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  z-index: 60;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mask i {
+    transform: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
