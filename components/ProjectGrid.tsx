@@ -14,7 +14,7 @@ export default function ProjectGrid() {
         delay={0.05}
         className="mt-3 max-w-2xl font-display text-3xl font-bold text-paper md:text-4xl"
       >
-        Eight domains, one standard: build it real, verify it, ship it.
+        Nine domains, one standard: build it real, verify it, ship it.
       </Reveal>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {PROJECTS.map((project, i) => (

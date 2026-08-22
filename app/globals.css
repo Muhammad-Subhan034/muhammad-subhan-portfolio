@@ -22,6 +22,7 @@
   --cat-agentic: #008300;
   --cat-voice: #9085e9;
   --cat-multimodal: #e66767;
+  --cat-creator: #1f9bc9;
 
   --ease: cubic-bezier(0.16, 0.8, 0.24, 1);
 
@@ -45,6 +46,7 @@
   --color-cat-agentic: var(--cat-agentic);
   --color-cat-voice: var(--cat-voice);
   --color-cat-multimodal: var(--cat-multimodal);
+  --color-cat-creator: var(--cat-creator);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);

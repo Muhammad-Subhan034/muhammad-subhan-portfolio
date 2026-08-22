@@ -6,7 +6,8 @@ export type Category =
   | "Finance"
   | "Agentic"
   | "Voice AI"
-  | "Multimodal";
+  | "Multimodal"
+  | "Creator Tools";
 
 export const CATEGORY_COLOR: Record<Category, string> = {
   "HR & Recruiting": "var(--cat-hr)",
@@ -17,6 +18,7 @@ export const CATEGORY_COLOR: Record<Category, string> = {
   Agentic: "var(--cat-agentic)",
   "Voice AI": "var(--cat-voice)",
   Multimodal: "var(--cat-multimodal)",
+  "Creator Tools": "var(--cat-creator)",
 };
 
 export type Project = {
@@ -159,5 +161,21 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://reelmind-video-agent.vercel.app",
     repoUrl: "https://github.com/Muhammad-Subhan034/reelmind-video-agent",
     preview: "/previews/reelmind.png",
+  },
+  {
+    slug: "clipforge",
+    name: "Clipforge",
+    category: "Creator Tools",
+    tagline: "One long video. A dozen short ones.",
+    description:
+      "Real word-level Whisper transcription, an LLM that picks the clip-worthy moments, ffmpeg.wasm reframing (blur-pad, not naive cropping) with burned-in synced captions, procedurally generated royalty-free music, and a trained hook-score classifier — all rendered client-side.",
+    highlights: [
+      "A genuine WebGL 3D hero (React Three Fiber), not a 2D mockup",
+      "Scoped down from the original ask: real repurposing tools, not copyright-detection evasion",
+      "Music synthesized from scratch via Web Audio — zero licensing risk",
+    ],
+    liveUrl: "https://clipforge-shorts-agent.vercel.app",
+    repoUrl: "https://github.com/Muhammad-Subhan034/clipforge-shorts-agent",
+    preview: "/previews/clipforge.png",
   },
 ];

@@ -70,7 +70,7 @@ export default function Hero() {
           </div>
           <h1 className="font-display text-5xl font-extrabold leading-[1.03] tracking-tight text-paper sm:text-6xl md:text-7xl">
             <span className="mask">
-              <i>Eight AI agents.</i>
+              <i>Nine AI agents.</i>
             </span>
             <br />
             <span className="mask">
