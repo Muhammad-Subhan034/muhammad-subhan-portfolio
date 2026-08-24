@@ -36,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={{ ["--cat-color" as string]: color }}
-      className="group relative overflow-hidden rounded-sm border border-paper/12 bg-ink-raised transition-colors duration-300 [transform-style:preserve-3d] hover:border-[var(--cat-color)]/60 hover:shadow-[0_0_40px_-12px_var(--cat-color)]"
+      className="group relative flex h-full flex-col overflow-hidden rounded-sm border border-paper/12 bg-ink-raised transition-colors duration-300 [transform-style:preserve-3d] hover:border-[var(--cat-color)]/60 hover:shadow-[0_0_40px_-12px_var(--cat-color)]"
     >
       <a href={project.liveUrl} target="_blank" rel="noreferrer" className="block">
         <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-paper/10 bg-ink">
@@ -53,7 +53,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           />
         </div>
       </a>
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center justify-between gap-2">
           <span
             className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide"
@@ -75,7 +75,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             </li>
           ))}
         </ul>
-        <div className="mt-5 flex gap-3">
+        <div className="mt-auto flex gap-3 pt-5">
           <a
             href={project.liveUrl}
             target="_blank"
