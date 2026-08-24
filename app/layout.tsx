@@ -28,7 +28,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Muhammad Subhan",
   description:
-    "Ten production-styled AI agent systems, each built end to end — real models, real evals, real bugs found and fixed, all deployed and open source.",
+    "AI agent systems and interactive data visualization, each built end to end and verified before shipping — real models, real evals, real bugs found and fixed, all live and open source.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
