@@ -74,9 +74,9 @@ export default function VisualizationPage() {
           <Reveal as="h2" delay={0.05} className="mt-3 max-w-xl font-display text-2xl font-bold text-paper md:text-3xl">
             From the internship, not a personal project.
           </Reveal>
-          <div className="mt-8 max-w-2xl">
+          <div className="mt-8">
             <Reveal variant="scale-in">
-              <VizMediaCard item={PYDASH_ITEM} accent="var(--cat-multimodal)" />
+              <VizMediaCard item={PYDASH_ITEM} accent="var(--cat-multimodal)" large />
             </Reveal>
           </div>
         </section>
