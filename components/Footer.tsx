@@ -6,7 +6,7 @@ export default function Footer() {
         <p className="max-w-md text-sm text-dim">
           Ten AI agent systems, each built end to end and deployed live —
           see{" "}
-          <a href="#work" className="underline decoration-dim/40 underline-offset-4 hover:text-paper">
+          <a href="/#work" className="underline decoration-dim/40 underline-offset-4 hover:text-paper">
             the work
           </a>{" "}
           above.
