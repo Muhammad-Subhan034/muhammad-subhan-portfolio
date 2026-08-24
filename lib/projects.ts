@@ -7,7 +7,8 @@ export type Category =
   | "Agentic"
   | "Voice AI"
   | "Multimodal"
-  | "Creator Tools";
+  | "Creator Tools"
+  | "Career Coaching";
 
 export const CATEGORY_COLOR: Record<Category, string> = {
   "HR & Recruiting": "var(--cat-hr)",
@@ -19,6 +20,7 @@ export const CATEGORY_COLOR: Record<Category, string> = {
   "Voice AI": "var(--cat-voice)",
   Multimodal: "var(--cat-multimodal)",
   "Creator Tools": "var(--cat-creator)",
+  "Career Coaching": "var(--cat-career)",
 };
 
 export type Project = {
@@ -177,5 +179,21 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://clipforge-shorts-agent.vercel.app",
     repoUrl: "https://github.com/Muhammad-Subhan034/clipforge-shorts-agent",
     preview: "/previews/clipforge.png",
+  },
+  {
+    slug: "gradlift",
+    name: "Gradlift",
+    category: "Career Coaching",
+    tagline: "Know exactly where you belong in your career",
+    description:
+      "A university capstone, not a weekend build: real resume parsing, FAISS + SentenceTransformers semantic matching against 34 career archetypes, a live career-trajectory graph, skill-gap analysis, and an ATS resume generator, backed by a genuinely production-grade FastAPI stack — JWT auth, rate limiting, audit logging, Alembic migrations.",
+    highlights: [
+      "Took over an existing live deployment — found and fixed a real production outage (a CORS/CSRF platform edge case) plus a permanent-lockout account-security bug, not a fresh build",
+      "3D shader hero (React Three Fiber): a GLSL-driven career-constellation, hand-written fresnel glow and flowing trajectory-path shaders, not lit meshes",
+      "Self-clearing 15-minute login lockout replacing a bug where 5 wrong guesses at anyone's username permanently disabled their account",
+    ],
+    liveUrl: "https://aicareeradvisor.space",
+    repoUrl: "https://github.com/Muhammad-Subhan034/FYP-AI-Career-Advisor",
+    preview: "/previews/gradlift.png",
   },
 ];

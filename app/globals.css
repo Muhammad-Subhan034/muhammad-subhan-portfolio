@@ -11,7 +11,7 @@
   --signal: #5b8cff;
   --signal-soft: #182236;
 
-  /* validated 8-hue categorical palette (dataviz skill reference), reused for
+  /* validated categorical palette (dataviz skill reference), reused for
      domain tags — identity-by-category, fixed order, never cycled. Dark-mode
      steps, since this UI's surface is --ink throughout, not the light default. */
   --cat-hr: #3987e5;
@@ -23,6 +23,7 @@
   --cat-voice: #9085e9;
   --cat-multimodal: #e66767;
   --cat-creator: #1f9bc9;
+  --cat-career: #a88526;
 
   --ease: cubic-bezier(0.16, 0.8, 0.24, 1);
 
@@ -47,6 +48,7 @@
   --color-cat-voice: var(--cat-voice);
   --color-cat-multimodal: var(--cat-multimodal);
   --color-cat-creator: var(--cat-creator);
+  --color-cat-career: var(--cat-career);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);

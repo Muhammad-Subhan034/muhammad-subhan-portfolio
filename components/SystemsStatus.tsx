@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { PROJECTS, CATEGORY_COLOR } from "@/lib/projects";
 
-const BOOT_LINE = "$ pinging 9 deployments...";
+const BOOT_LINE = `$ pinging ${PROJECTS.length} deployments...`;
 
 export default function SystemsStatus() {
   const rowRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -59,7 +59,7 @@ export default function SystemsStatus() {
     <div className="w-full max-w-sm rounded-sm border border-paper/12 bg-ink-raised p-6">
       <p className="font-mono text-[11px] uppercase tracking-widest text-dim">
         {showStatus ? (
-          "9 systems — all live"
+          `${PROJECTS.length} systems — all live`
         ) : (
           <>
             {bootText}
