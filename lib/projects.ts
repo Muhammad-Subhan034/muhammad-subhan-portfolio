@@ -186,11 +186,11 @@ export const PROJECTS: Project[] = [
     category: "Career Coaching",
     tagline: "Know exactly where you belong in your career",
     description:
-      "A university capstone, not a weekend build: real resume parsing, FAISS + SentenceTransformers semantic matching against 34 career archetypes, a live career-trajectory graph, skill-gap analysis, and an ATS resume generator, backed by a genuinely production-grade FastAPI stack — JWT auth, rate limiting, audit logging, Alembic migrations.",
+      "Parses a real resume, matches it to 34 career archetypes via FAISS + SentenceTransformers semantic search, maps a live career trajectory, closes skill gaps, and drafts an ATS-optimised resume — with a Groq-powered chat advisor for anything the dashboard doesn't answer.",
     highlights: [
-      "Took over an existing live deployment — found and fixed a real production outage (a CORS/CSRF platform edge case) plus a permanent-lockout account-security bug, not a fresh build",
-      "3D shader hero (React Three Fiber): a GLSL-driven career-constellation, hand-written fresnel glow and flowing trajectory-path shaders, not lit meshes",
-      "Self-clearing 15-minute login lockout replacing a bug where 5 wrong guesses at anyone's username permanently disabled their account",
+      "Semantic role matching against 34 career archetypes with real confidence scores, not keyword lookup",
+      "3D shader hero (React Three Fiber) — hand-written fresnel-glow and flowing trajectory-path GLSL",
+      "Live career-trajectory graph and skill-gap analysis feeding a real ATS resume generator",
     ],
     liveUrl: "https://aicareeradvisor.space",
     repoUrl: "https://github.com/Muhammad-Subhan034/FYP-AI-Career-Advisor",
