@@ -5,6 +5,7 @@ const LINKS = [
   { label: "LinkedIn", href: "https://linkedin.com/in/muhammad-subhan-2694032551" },
   { label: "GitHub", href: "https://github.com/Muhammad-Subhan034" },
   { label: "Call", href: "tel:+923034343999" },
+  { label: "Download Resume", href: "/resume.pdf", download: "Muhammad_Subhan_Resume.pdf" },
 ];
 
 export default function ContactSection() {
@@ -21,8 +22,9 @@ export default function ContactSection() {
           <a
             key={link.label}
             href={link.href}
-            target="_blank"
-            rel="noreferrer"
+            target={link.download ? undefined : "_blank"}
+            rel={link.download ? undefined : "noreferrer"}
+            download={link.download}
             className="rounded-sm border border-paper/20 px-6 py-3 font-mono text-[13px] uppercase tracking-wide text-paper transition-colors hover:bg-ink-raised"
           >
             {link.label} →

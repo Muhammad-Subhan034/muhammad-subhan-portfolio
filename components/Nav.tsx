@@ -24,6 +24,14 @@ export default function Nav() {
             </a>
           ))}
           <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-sm px-3 py-1.5 text-dim transition-colors hover:bg-ink-raised hover:text-paper"
+          >
+            Resume
+          </a>
+          <a
             href="https://github.com/Muhammad-Subhan034"
             className="ml-2 rounded-sm bg-signal px-3 py-1.5 text-ink"
           >
