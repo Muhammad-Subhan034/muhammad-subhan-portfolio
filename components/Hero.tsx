@@ -69,11 +69,7 @@ export default function Hero() {
           </div>
           <h1 className="font-display text-5xl font-extrabold leading-[1.03] tracking-tight text-paper sm:text-6xl md:text-7xl">
             <span className="mask">
-              <i>
-                AI systems,
-                <br />
-                data visualized.
-              </i>
+              <i>Real work.</i>
             </span>
             <br />
             <span className="mask">
@@ -81,9 +77,9 @@ export default function Hero() {
             </span>
           </h1>
           <p data-hero-fade className="mt-7 max-w-md text-lg leading-relaxed text-dim">
-            Every build here is real, not mocked: trained models, verified
-            outputs, real bugs found and fixed before shipping. All live,
-            all open source.
+            AI agents and interactive data visualization, each one built
+            end to end and verified before shipping. Real models, real
+            outputs, real bugs found and fixed. All live, all open source.
           </p>
           <div data-hero-fade className="mt-9 flex flex-wrap items-center gap-4">
             <a
