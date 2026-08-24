@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
-import SystemsStatus from "./SystemsStatus";
 import NetworkField from "./NetworkField";
 
 export default function Hero() {
@@ -50,7 +49,7 @@ export default function Hero() {
       <NetworkField />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink" />
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 md:pt-24">
-      <div className="grid items-center gap-16 md:grid-cols-[1.1fr_0.9fr]">
+      <div className="max-w-2xl">
         <div>
           <div data-hero-fade className="mb-6 flex items-center gap-4">
             <Image
@@ -96,9 +95,6 @@ export default function Hero() {
               GitHub profile
             </a>
           </div>
-        </div>
-        <div className="flex justify-center md:justify-end">
-          <SystemsStatus />
         </div>
       </div>
       </div>

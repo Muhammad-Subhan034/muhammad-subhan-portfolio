@@ -1,8 +1,11 @@
 import Reveal from "./Reveal";
 
-// Add more entries here (email, LinkedIn, etc.) once available — kept to what's
-// real for now rather than shipping placeholder text on a live page.
-const LINKS = [{ label: "GitHub", href: "https://github.com/Muhammad-Subhan034" }];
+const LINKS = [
+  { label: "Email", href: "mailto:muhammadsubhanmsk@gmail.com" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/muhammad-subhan-2694032551" },
+  { label: "GitHub", href: "https://github.com/Muhammad-Subhan034" },
+  { label: "Call", href: "tel:+923034343999" },
+];
 
 export default function ContactSection() {
   return (
